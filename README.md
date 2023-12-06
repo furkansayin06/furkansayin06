@@ -3,29 +3,64 @@ namespace ConsoleApp4
 
     internal class Program
     {
-        class fakto
+        namespace ConsoleApp5
+{
+    class random
+    {
+        public int rastgeleSayi(int i)
         {
-            public int kdş(int sayi1)
+            random random = new random();
+            int rastgeleSayi = random.Next(1, 11);
+            int tahmin = 0;
+            int tahminHkkı = 3;
+            Console.WriteLine("1 ile 10 araasında bir sayıyı tahmin edin:");
+            while (tahminHkkı > 0)
             {
-                int toplam = 1;
-                for (int i = 1; i <= sayi1; i++)
+                if (int.TryParse(Console.ReadLine(), out rastgeleSayi))
                 {
-                    toplam = toplam * i;
+                    if (tahmin == rastgeleSayi)
+                    {
+                        Console.WriteLine("Tebrikler,Tahmin Doğru:");
+                        break;
+                    }
+                    else {
+                        tahminHkkı--;
+                        if (tahminHkkı > 0)
+                        {
+                            Console.WriteLine("Üngünüz,Tahmininiz Yanlış.Kalan Tahmin Sayınız:" + tahminHkkı);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tahmin Hakkınız Bitti.Doğru cevap:" + rastgeleSayi);
+                        }
+
+
+                        else
+                        {
+                            Console.WriteLine("Lütfen Geçerli Bir Sayı Girin.");
+
+                        }
+                    }
+                    Console.WriteLine("Oyun bitti. Lütfen tekrar deneyiniz!");
                 }
-                return toplam;
+                
+
+            }
+           
+        }
+
+
+
+
+
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.ReadKey();
             }
         }
-       
-        static void Main(string[] args)
-        {
-            fakto fakto = new fakto();
-            Console.WriteLine("sayı girin");
-            int sayi1 = Convert.ToInt32(Console.ReadLine());
-            int toplam = fakto.kdş(sayi1);
-            Console.WriteLine("Faktöriyel:{0}", toplam);
-            Console.ReadKey();
-
-
-        }
-    }
+    } 
 }
+ 
+    
